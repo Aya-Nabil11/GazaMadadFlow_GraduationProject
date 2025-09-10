@@ -2102,5 +2102,6 @@
     </div>
 
     <script src="{{asset('js/script.js')}}"></script>
+    <script>console.log({{asset('js/script.js')}})</script>
   </body>
 </html>
