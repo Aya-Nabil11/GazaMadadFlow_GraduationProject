@@ -85,7 +85,7 @@ return new class extends Migration
         $table->json('urgent_basic_needs_for_family')->default(''); // #الاحتياجات الأساسية العاجلة للأسرة
         $table->json('secondary_needs_for_family')->nullable(); // #الاحتياجات الثانوية للأسرة
         $table->json('sources_of_family_income')->nullable(); // #مصادر دخل الأسرة
-        $table->integer('monthly_income_shekels', 10, 2)->default(0); //# الدخل الشهري بالشيكل
+        $table->decimal('monthly_income_shekels', 10, 2)->default(0); //# الدخل الشهري بالشيكل
         $table->boolean('is_unable_to_use_land_or_properties_due_to_war')->default(false); //# عدم القدرة على استخدام الأراضي أو الممتلكات بسبب الحرب
         $table->boolean('has_bank_account')->default(false); //# هل يوجد حساب بنكي
         //End of Needs
