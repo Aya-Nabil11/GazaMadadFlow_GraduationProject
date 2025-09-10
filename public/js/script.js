@@ -135,16 +135,54 @@ function previousStep() {
   
 // }
 
+// function submitForm() {
+//   // Select the form
+//   const form = document.querySelector("form");
+
+//   // Optional: You can do final validation here if needed
+
+//   // Submit the form
+//   form.submit();
+// }
+
+
 function submitForm() {
-  // Select the form
-  const form = document.querySelector("form");
+  const form = document.querySelector("form"); // Select the form
+  const formData = new FormData(form);         // Convert form fields to FormData
 
-  // Optional: You can do final validation here if needed
+  // Get CSRF token from the form
+  const token = form.querySelector('input[name="_token"]').value;
 
-  // Submit the form
-  form.submit();
+  // Send data to Laravel backend via fetch
+  fetch(form.action, {
+    method: form.method, // e.g., POST
+    headers: {
+      'X-CSRF-TOKEN': token,
+      'Accept': 'application/json' // Tell Laravel we want JSON response
+    },
+    body: formData
+  })
+  .then(response => {
+    // Check if server returned HTTP 200
+    if (response.status === 200) return response.json();
+    else throw new Error('Server returned status ' + response.status);
+  })
+  .then(data => {
+    if (data.status) {
+      // Success → show success page
+      document.getElementById("registration-form").classList.add("hidden");
+      document.getElementById("success-page").classList.remove("hidden");
+    } else {
+      // Server responded but status is false
+      alert(data.message || "Submission failed!");
+    }
+  })
+  .catch(error => {
+    // Network error or non-200 response
+    console.error("Error submitting form:", error);
+    alert("There was a problem with your submission.");
+  });
 }
-
 
 function goHome() {
   // Reset form

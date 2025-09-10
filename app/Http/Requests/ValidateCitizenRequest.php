@@ -41,7 +41,7 @@ class ValidateCitizenRequest extends FormRequest
                         ->where('spouse_identity_number', $value)
                         ->exists();
                     if ($exists) {
-                        $fail('رقم الهوية مستخدم بالفعل كهوية الزوج/ة.');
+                        $fail('رقم هوية المعيل مستخدم بالفعل كهوية الزوج/ة.');
                     }
                 },],
         'date_of_birth'   => ['required', 'date'],
@@ -173,7 +173,7 @@ public function messages()
         'family_name.max'      => 'اسم العائلة لا يمكن أن يزيد عن 255 حرفًا',
         //-------------------------------
         'identity_number.digits'   => 'رقم الهوية يجب أن يتكون من 9 أرقام',
-        'identity_number.unique'   => 'رقم الهوية مستخدم مسبقًا',
+        'identity_number.unique'   => 'رقم هوية المعيل مستخدم مسبقًا',
         //-------------------------------
         'spouse_first_name.string' => 'الاسم الأول للزوج/ة يجب أن يكون نصًا',
         'spouse_first_name.max'    => 'الاسم الأول للزوج/ة لا يمكن أن يزيد عن 255 حرفًا',
@@ -218,9 +218,9 @@ public function messages()
         // Family needs & income
         'monthly_income_shekels.min'                      => 'الدخل الشهري (شيكل) يجب أن يكون صفر أو أكثر',
         // Bank details
-        'account_holder_name.max'        => 'الاسم طويل جدًا',
+        'account_holder_name.max'        => 'اسم صاحب الحساب البنكي طويل جدًا',
         'bank_name_branch.max'           => 'اسم البنك/الفرع طويل جدًا',
-        'account_holder_id_number.digits' => 'رقم الهوية يجب أن يكون 9 أرقام',
+        'account_holder_id_number.digits' => 'رقم هوية صاحب الحساب البنكي يجب أن يكون 9 أرقام',
     ];
 }
 
