@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CitizenController;
 
-Route::get('/index', function () {
+Route::get('/', function () {
     return view('index'); 
 });
 
