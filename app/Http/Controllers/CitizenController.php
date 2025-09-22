@@ -131,11 +131,11 @@ class CitizenController extends Controller
         }, $validated);
         // Create the Citizen record
          $citizen = Citizen::create($validated);
-        // dd($citizen);
+        dd($citizen);
         //  dispatch the job for Google Sheets export
-        if (is_null($citizen->exported_at)) {
-            SyncCitizenToGoogleSheet::dispatch();
-        }
+        // if (is_null($citizen->exported_at)) {
+        //     SyncCitizenToGoogleSheet::dispatch();
+        // }
 
         $status=false;
         if($citizen) $status=true;
