@@ -129,6 +129,9 @@ class CitizenController extends Controller
         $validated = array_map(function($value) {
             return $value === null ? '' : $value;
         }, $validated);
+        Log::info(env('DB_HOST'));
+Log::info(env('GOOGLE_SHEET_ID'));
+
         // Create the Citizen record
          $citizen = Citizen::create($validated);
         dd($citizen);
