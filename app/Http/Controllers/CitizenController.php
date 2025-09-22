@@ -6,6 +6,7 @@ use App\Models\Citizen;
 use Illuminate\Http\Request;
 use App\Jobs\SyncCitizenToGoogleSheet;
 use App\Http\Requests\ValidateUserRequest;
+use Illuminate\Support\Facades\Log;
 
 class CitizenController extends Controller
 {
