@@ -135,7 +135,7 @@ Log::info(env('GOOGLE_SHEET_ID'));
 
         // Create the Citizen record
          $citizen = Citizen::create($validated);
-        dd($citizen);
+       // dd($citizen);
         //  dispatch the job for Google Sheets export
         // if (is_null($citizen->exported_at)) {
         //     SyncCitizenToGoogleSheet::dispatch();
