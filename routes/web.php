@@ -15,6 +15,6 @@ use App\Services\GoogleSheet;
 |
 */
 
-Route::get('/citizens', [CitizenController::class, 'index'])->name('citizens.index');
+Route::get('/', [CitizenController::class, 'index'])->name('citizens.index');
 Route::get('/citizens/create', [CitizenController::class, 'create'])->name('citizens.create');
 Route::post('/citizens', [CitizenController::class, 'store'])->name('citizens.store');
