@@ -11,15 +11,36 @@ class GoogleSheet
     private $client;
     private $googleSheetService;
 
+    // public function __construct(){
+    //     $this->spreadsheetId = config('gazamadadflow.google_sheet_id');
+
+    //     $this->client = new Google_Client();
+    //     $this->client->setAuthConfig(base_path('/etc/secrets/credentials'));
+    //     $this->client->addScope("https://www.googleapis.com/auth/spreadsheets");
+
+    //     $this->googleSheetService = new Google_Service_Sheets($this->client);
+    // }
+
+
     public function __construct(){
-        $this->spreadsheetId = config('gazamadadflow.google_sheet_id');
+    $this->spreadsheetId = config('gazamadadflow.google_sheet_id');
 
-        $this->client = new Google_Client();
-        $this->client->setAuthConfig(base_path('/etc/secrets/credentials'));
-        $this->client->addScope("https://www.googleapis.com/auth/spreadsheets");
+    $this->client = new Google_Client();
+    $this->client->addScope("https://www.googleapis.com/auth/spreadsheets");
 
-        $this->googleSheetService = new Google_Service_Sheets($this->client);
+    // Option 1: Use GOOGLE_CREDENTIALS env variable (JSON)
+    $credentialsJson = env('GOOGLE_CREDENTIALS');
+    if ($credentialsJson) {
+        $this->client->setAuthConfig(json_decode($credentialsJson, true));
+    } 
+    // Option 2: Fallback to local credentials.json file for dev
+    else {
+        $this->client->setAuthConfig(base_path('credentials.json'));
     }
+
+    $this->googleSheetService = new Google_Service_Sheets($this->client);
+}
+
 
     public function readGoogleSheet(){
         $dimensions = $this->getDimensions($this->spreadsheetId);
