@@ -5,7 +5,7 @@ use Google_Client;
 use Google_Service_Sheets;
 use Google_Service_Sheets_ValueRange;
 
-class GoogleSheet
+class GoogleSheet 
 {
     private $spreadsheetId;
     private $client;
@@ -15,7 +15,7 @@ class GoogleSheet
         $this->spreadsheetId = config('gazamadadflow.google_sheet_id');
 
         $this->client = new Google_Client();
-        $this->client->setAuthConfig(base_path('storage/credentials.json'));
+        $this->client->setAuthConfig(base_path('/etc/secrets/credentials'));
         $this->client->addScope("https://www.googleapis.com/auth/spreadsheets");
 
         $this->googleSheetService = new Google_Service_Sheets($this->client);
