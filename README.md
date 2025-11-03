@@ -1,142 +1,109 @@
-🌍 Gaza Madad Flow (GMF)
-A Web Automation Model for Humanitarian Aid Registration in Gaza
-📖 Overview
+# 🌍 Gaza Madad Flow (GMF)
+### A Web Automation Model for Humanitarian Aid Registration in Gaza
 
-Gaza Madad Flow (GMF) is a humanitarian automation system developed to simplify and accelerate aid registration for citizens affected by the October 2023 war in Gaza.
-It allows beneficiaries to register once through a custom web interface and have their data automatically sent to multiple humanitarian aid platforms — reducing repetitive manual entry and ensuring faster, fairer distribution of support.
+---
 
-🧠 Problem Statement
+## 📘 Overview
+**Gaza Madad Flow (GMF)** is a humanitarian automation system designed to simplify and accelerate aid registration for citizens affected by the **October 2023 war in Gaza**.  
+It allows users to register **once** through a custom web interface, and their data is automatically sent to multiple humanitarian aid platforms — reducing repetitive manual entry and ensuring faster, fairer distribution of support.
 
-After the war, most Gaza residents faced:
+---
 
-Weak internet and power outages
+## 💡 Problem Statement
+After the war, Gaza residents faced:
+- ⚡ Weak internet and power outages  
+- 🌐 Limited access to multiple registration platforms  
+- 📝 Repetitive form filling for every aid program  
 
-Limited access to multiple registration platforms
+**GMF** solves these issues by introducing a **unified automated registration model** that works even in low-connectivity conditions.
 
-Repetitive form filling for each aid program
+---
 
-GMF solves these issues by introducing a unified, automated registration model that works even in low-connectivity conditions.
+## 🎯 Objectives
+- Develop a Laravel-based web interface for one-time validated data entry.  
+- Store submissions securely in **MySQL**.  
+- Synchronize data automatically to **Google Sheets**.  
+- Use **n8n automation** to submit data to multiple humanitarian platforms.  
+- Deploy the system on **Render Cloud** for 24/7 accessibility.
 
-🎯 Objectives
+---
 
-Build a Laravel-based web interface for one-time validated data entry.
-
-Store all submissions securely in MySQL.
-
-Synchronize data automatically to Google Sheets for workflow processing.
-
-Use n8n automation to submit data to several humanitarian platforms.
-
-Ensure reliability through hourly background synchronization and real-case testing.
-
-⚙️ System Architecture
+## ⚙️ System Architecture
 Citizen Form (Laravel Blade)
-        ↓
-MySQL Database (validated records)
-        ↓
-Hourly Batch Job (UptimeRobot trigger)
-        ↓
-Google Sheets (central source)
-        ↓
-n8n Workflow (data cleaning + mapping + POST submission)
-        ↓
-Humanitarian Aid Platforms
+↓
+MySQL Database
+↓
+Hourly Batch Job (UptimeRobot)
+↓
+Google Sheets (Central Sync)
+↓
+n8n Workflow Automation
+↓
+Humanitarian Platforms
 
-🧩 Core Features
+yaml
+Copy code
 
-✅ One-time unified registration
-✅ Automated submission to multiple aid platforms
-✅ Built-in validation and duplicate detection
-✅ Offline/low-connectivity support
-✅ Hourly data sync from MySQL → Google Sheets
-✅ Cloud deployment on Render
-✅ Continuous monitoring with UptimeRobot
+---
 
-🛠️ Tech Stack
-Category	Tools
-Backend Framework	Laravel (PHP)
-Database	MySQL
-Frontend	Blade + TailwindCSS + JavaScript
-Automation Platform	n8n
-Cloud Hosting	Render
-Monitoring	UptimeRobot
-Version Control	GitHub
-Documentation & Collaboration	Google Sheets, WhatsApp, MS Word
-🧪 Prototyping Methodology
+## 🧩 Core Features
+✅ One-time unified registration  
+✅ Automated data submission  
+✅ Built-in validation and duplicate detection  
+✅ Hourly background synchronization  
+✅ Cloud deployment and uptime monitoring  
 
-GMF was developed using Incremental Prototyping, evolving through five stages:
+---
 
-Prototype 1: Data collection via Google Forms
+## 🛠️ Tech Stack
+| Layer | Technology |
+|--------|-------------|
+| **Frontend** | Laravel Blade, Tailwind CSS, JavaScript |
+| **Backend** | Laravel (PHP) |
+| **Database** | MySQL |
+| **Automation** | n8n |
+| **Hosting** | Render |
+| **Monitoring** | UptimeRobot |
 
-Prototype 2: Automated submission to one aid platform
+---
 
-Prototype 3: Multi-platform integration
+## 🧪 Testing & Results
+Tested on real aid portals such as:
+- 🕌 KSACH Humanitarian Portal  
+- 🤝 Future Hope for Affected Families  
 
-Prototype 4: Laravel + MySQL + hourly batch workflow
+**Results:**  
+✅ Data mapped and submitted successfully  
+✅ Reliable under unstable network conditions  
+✅ Fast synchronization between MySQL and Google Sheets  
 
-Prototype 5: Deployment on Render and cloud testing
+---
 
-🧵 Workflow Implementation (n8n)
+## 👩‍💻 Contributors
+| Name | Role |
+|------|------|
+| Aya Nabil Alharazin | Backend & Automation Lead |
+| Maryam Refaa Skaik | Workflow & Testing |
+| Rania Raid Kashkask | UI/UX Design |
+| Misk Saad Ashour | Data Integration |
+| Alaa Shareef Yousef | Cloud Deployment |
 
-Trigger: New record added to Google Sheet
+**Supervisor:** Eng. Mohammed El-Agha  
+*Faculty of Information Technology, Islamic University of Gaza – Oct 2025*
 
-GET Request: Scrape aid platform form
+---
 
-Map Fields: Match citizen data to platform requirements
+## ☁️ Deployment
+- Hosted on **Render (Free Tier)**  
+- Background jobs triggered hourly via **UptimeRobot**  
+- MySQL–Google Sheets synchronization handled through Laravel Scheduler  
 
-POST Request: Submit automatically with CSRF tokens and cookies
+---
 
-Update Sheet: Mark record as processed (ScrapedAt timestamp)
+## 🎥 Demo
+📹 [Watch System Demo](https://drive.google.com/file/d/1QIFwIBWDE8j-5K6Kc-meXmhB0_rABhn9/view?usp=sharing)
 
-📈 Testing & Results
+---
 
-Realistic tests were conducted using:
-
-Saudi Heritage Center Aid Portal
-
-Future Hope for Affected Families Platform
-
-✅ Data mapped and submitted automatically
-✅ Real-time synchronization confirmed
-✅ Reliable operation under limited network conditions
-
-☁️ Deployment
-
-Hosted on Render (free tier)
-
-Background jobs triggered hourly using UptimeRobot
-
-MySQL database + Laravel backend continuously synced with Google Sheets
-
-🔒 Data Privacy
-
-All collected data is stored securely and shared only with authorized aid platforms.
-Sensitive information is encrypted, ensuring integrity and user privacy.
-
-🚀 Future Improvements
-
-Integration with additional humanitarian platforms
-
-AI-based field mapping via LLMs
-
-Multi-language support
-
-Automatic form adaptation for unknown structures
-
-Conversion into a fully managed cloud service
-
-👩‍💻 Contributors		
-Aya Alharazin		
-Maryam Skaik		
-Rania Kashkask		
-Misk Ashour		
-Alaa Yousef		
-
-Supervisor: Eng. Mohammed El-Agha
-Faculty of Information Technology – Islamic University of Gaza
-October 2025
-
-📄 License
-
-This project is part of a graduation thesis and is shared for educational and humanitarian purposes only.
-All rights reserved © 2025 Gaza Madad Flow Team.
+## 📜 License
+© 2025 Gaza Madad Flow Team — for educational and humanitarian use only.
