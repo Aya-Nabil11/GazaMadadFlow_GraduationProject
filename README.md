@@ -80,13 +80,13 @@ Tested on real aid portals such as:
 ---
 
 ## 👩‍💻 Contributors
-| Name | Role |
-|------|------|
-| Aya Nabil Alharazin | Backend & Automation Lead |
-| Maryam Refaa Skaik | Workflow & Testing |
-| Rania Raid Kashkask | UI/UX Design |
-| Misk Saad Ashour | Data Integration |
-| Alaa Shareef Yousef | Cloud Deployment |
+| Name | 
+|------|
+| Aya Nabil Alharazin |
+| Maryam Refaa Skaik |
+| Rania Raid Kashkask |
+| Misk Saad Ashour |
+| Alaa Shareef Yousef |
 
 **Supervisor:** Eng. Mohammed El-Agha  
 *Faculty of Information Technology, Islamic University of Gaza – Oct 2025*
@@ -98,10 +98,6 @@ Tested on real aid portals such as:
 - Background jobs triggered hourly via **UptimeRobot**  
 - MySQL–Google Sheets synchronization handled through Laravel Scheduler  
 
----
-
-## 🎥 Demo
-📹 [Watch System Demo](https://drive.google.com/file/d/1QIFwIBWDE8j-5K6Kc-meXmhB0_rABhn9/view?usp=sharing)
 
 ---
 
