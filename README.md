@@ -41,8 +41,7 @@ n8n Workflow Automation
 ↓
 Humanitarian Platforms
 
-yaml
-Copy code
+
 
 ---
 
