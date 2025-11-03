@@ -81,11 +81,11 @@ Tested on real aid portals such as:
 ## 👩‍💻 Contributors
 | Name | 
 |------|
-| Aya Nabil Alharazin |
-| Maryam Refaa Skaik |
-| Rania Raid Kashkask |
-| Misk Saad Ashour |
-| Alaa Shareef Yousef |
+| Aya Alharazin |
+| Maryam Skaik |
+| Rania Kashkask |
+| Misk Ashour |
+| Alaa Yousef |
 
 **Supervisor:** Eng. Mohammed El-Agha  
 *Faculty of Information Technology, Islamic University of Gaza – Oct 2025*
